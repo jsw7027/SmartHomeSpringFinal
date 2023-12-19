@@ -36,10 +36,10 @@ public class AuthService {
     }
 
 
-    public void userSignUp(com.example.smarthomespring.user.domain.User user){
+    public void userSignUp(User user){
 
 
-        com.example.smarthomespring.user.domain.User user1 = com.example.smarthomespring.user.domain.User.builder()
+        User user1 = User.builder()
                 .login_id(user.getLogin_id())
                 .login_pw(user.getLogin_pw())
                 .build();

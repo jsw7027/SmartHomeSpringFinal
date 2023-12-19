@@ -1,6 +1,7 @@
 package com.example.smarthomespring.user.controller;
 
 
+import com.example.smarthomespring.user.domain.User;
 import com.example.smarthomespring.user.dto.LoginReq;
 import com.example.smarthomespring.user.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +27,8 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public void userRegist(@RequestBody com.example.smarthomespring.user.domain.User req){
+    public void userRegist(@RequestBody User req){
+        System.out.println(req.getLogin_id());
 
         authService.userSignUp(req);
     }
