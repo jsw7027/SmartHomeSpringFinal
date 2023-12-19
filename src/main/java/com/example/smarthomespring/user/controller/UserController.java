@@ -1,29 +1,32 @@
 package com.example.smarthomespring.user.controller;
 
 
-import com.example.smarthomespring.remote.dto.RemoteAddReq;
-import com.example.smarthomespring.user.domain.User;
 import com.example.smarthomespring.user.dto.LoginReq;
 import com.example.smarthomespring.user.service.AuthService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+@RequiredArgsConstructor
 public class UserController {
 
-    AuthService authService;
+    private final AuthService authService;
+
 
     @PostMapping("/login")
-    public void userLogin(@RequestParam(name = "id", required = false) Long id,
-                           LoginReq loginReq){
+    public Boolean userLogin(@RequestBody LoginReq loginReq){
+        System.out.println("test :: "+ loginReq.getLogin_id());
 
-        authService.login(loginReq);
+        Boolean result = authService.login(loginReq);
+
+        return result;
     }
 
 
 
     @PostMapping("/register")
-    public void userRegist(@RequestBody User req){
+    public void userRegist(@RequestBody com.example.smarthomespring.user.domain.User req){
 
         authService.userSignUp(req);
     }

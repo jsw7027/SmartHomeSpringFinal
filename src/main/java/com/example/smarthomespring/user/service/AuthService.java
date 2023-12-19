@@ -1,8 +1,6 @@
 package com.example.smarthomespring.user.service;
 
 
-import com.example.smarthomespring.remote.domain.Remote;
-import com.example.smarthomespring.remote.dto.RemoteAddReq;
 import com.example.smarthomespring.user.domain.User;
 import com.example.smarthomespring.user.dto.LoginReq;
 import com.example.smarthomespring.user.dto.UserDetail;
@@ -10,7 +8,6 @@ import com.example.smarthomespring.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,10 +36,10 @@ public class AuthService {
     }
 
 
-    public void userSignUp(User user){
+    public void userSignUp(com.example.smarthomespring.user.domain.User user){
 
 
-        User user1 = User.builder()
+        com.example.smarthomespring.user.domain.User user1 = com.example.smarthomespring.user.domain.User.builder()
                 .login_id(user.getLogin_id())
                 .login_pw(user.getLogin_pw())
                 .build();

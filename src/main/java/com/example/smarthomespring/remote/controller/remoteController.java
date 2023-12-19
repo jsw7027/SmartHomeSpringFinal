@@ -29,7 +29,6 @@ public class remoteController {
     @PostMapping("/register")
     public void saveRemote(@RequestBody RemoteAddReq req){
 
-        System.out.println("test " +req.getRemoteCode());
         remoteService.saveRemote(req);
     }
 
